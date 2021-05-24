@@ -10,50 +10,57 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/im6"
+        android:background="@drawable/images"
         tools:context=".MainActivity5">
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="205dp"
-            android:layout_height="43dp"
-            android:layout_marginTop="28dp"
+            style="@style/Filltext"
+            android:layout_width="224dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/aladin"
+            android:gravity="center|left"
+            android:paddingLeft="15dp"
             android:text="Search for Data "
-            android:textColor="#1F4A6C"
+            android:textColor="@color/white"
             android:textColorHighlight="#FFFFFF"
             android:textColorHint="#000000"
-            android:textSize="36sp"
+            android:textSize="34sp"
             app:layout_constraintEnd_toStartOf="@+id/imageView"
-            app:layout_constraintHorizontal_bias="0.82"
+            app:layout_constraintHorizontal_bias="0.806"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="395dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="56dp"
+            style="@style/Filltext"
+            android:layout_width="383dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/aladin"
             android:gravity="center"
             android:padding="2sp"
             android:text="Choose the type of information you want to search for :"
-            android:textColor="#2C4F6A"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <Spinner
             android:id="@+id/spinner"
+            style="@style/Filltext"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:layout_margin="4sp"
             android:layout_marginTop="24dp"
+            android:backgroundTint="#FFFFFF"
             android:foregroundGravity="center"
             android:gravity="center"
             android:padding="5sp"
+            android:textAlignment="center"
             android:textSize="8sp"
             app:layout_constraintBottom_toTopOf="@+id/data"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,11 +73,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
+            android:background="@drawable/transparent_bg_bordered_button"
             android:fontFamily="@font/aladin"
             android:onClick="searchOnClick"
             android:text="Search"
+
             android:textSize="18sp"
-            app:backgroundTint="#1F4A6C"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +86,7 @@
 
         <ListView
             android:id="@+id/result"
+            style="@style/Filltext"
             android:layout_width="208dp"
             android:layout_height="260dp"
             android:layout_marginTop="24dp"
@@ -88,23 +97,28 @@
             app:layout_constraintTop_toBottomOf="@+id/search"
             app:layout_constraintVertical_bias="0.0" />
 
-        <Button
+
+        <ImageButton
             android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/aladin"
+            android:layout_width="76dp"
+            android:layout_height="53dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/transparent_bg_bordered_button"
+            android:backgroundTint="@android:color/transparent"
             android:onClick="backOnClick"
-            android:text="Back"
-            android:textSize="18sp"
-            app:backgroundTint="#1F4A6C"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.07"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.122"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_action_name"
+            tools:ignore="VectorDrawableCompat" />
 
         <EditText
             android:id="@+id/data"
+            style="@style/Filltext"
             android:layout_width="255dp"
             android:layout_height="44dp"
             android:layout_marginTop="12dp"
@@ -113,6 +127,9 @@
             android:gravity="center"
             android:hint=" Data you are searching for"
             android:inputType="textPersonName"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/search"
             app:layout_constraintEnd_toEndOf="parent"
@@ -121,13 +138,13 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="76dp"
-            android:layout_height="73dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="90dp"
+            android:layout_height="102dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.262"
+            app:layout_constraintVertical_bias="0.363"
             app:srcCompat="@drawable/im3" />
 
 

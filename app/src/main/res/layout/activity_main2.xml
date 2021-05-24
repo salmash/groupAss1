@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/images"
     tools:context=".MainActivity2">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="412dp"
-        android:layout_height="108dp"
-        android:background="#352E2E"
+        android:layout_width="match_parent"
+        android:layout_height="113dp"
+        android:background="@android:color/transparent"
         android:fontFamily="@font/aladin"
         android:gravity="center"
         android:text="Choose your Option"
-        android:textColor="#E1DCDC"
+        android:textColor="@color/white"
         android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -23,56 +25,70 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="409dp"
-        android:layout_height="691dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/homeimage" />
-
     <Button
         android:id="@+id/button2"
         style="@style/btn_style"
-        android:layout_width="143dp"
-        android:layout_height="47dp"
+        android:layout_width="244dp"
+        android:layout_height="75dp"
+        android:background="@drawable/transparent_bg_bordered_button"
         android:onClick="Addbtn_OnClick"
         android:text="Add Student"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.259" />
+        app:layout_constraintVertical_bias="0.306" />
 
     <Button
         android:id="@+id/button3"
         style="@style/btn_style"
-        android:layout_width="215dp"
-        android:layout_height="50dp"
+        android:layout_width="244dp"
+        android:layout_height="75dp"
+        android:background="@drawable/transparent_bg_bordered_button"
         android:onClick="Update_OnClick"
         android:text="Update Information"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.082" />
 
     <Button
         android:id="@+id/button4"
         style="@style/btn_style"
-        android:layout_width="106dp"
-        android:layout_height="46dp"
+        android:layout_width="244dp"
+        android:layout_height="75dp"
+        android:background="@drawable/transparent_bg_bordered_button"
         android:onClick="Search_OnClick"
         android:text="Search"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="0.258" />
+        app:layout_constraintVertical_bias="0.075" />
+
+    <Button
+        android:id="@+id/button5"
+        style="@style/btn_style"
+        android:layout_width="173dp"
+        android:layout_height="62dp"
+        android:background="@drawable/transparent_bg_bordered_button"
+        android:onClick="endOnClick"
+        android:text="Exit"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:layout_constraintVertical_bias="0.984" />
 </androidx.constraintlayout.widget.ConstraintLayout>

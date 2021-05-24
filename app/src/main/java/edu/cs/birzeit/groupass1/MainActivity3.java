@@ -2,9 +2,11 @@ package edu.cs.birzeit.groupass1;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -77,22 +79,31 @@ public class MainActivity3 extends AppCompatActivity {
         courseSpn = findViewById(R.id.courseSpn);
         populateCourseSpinner();
     }
+    public void backOnClick(View view) {
+        Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
+    }
 
     public void btnAddOnClick(View view) {
-        InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        mgr.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        String restUrl = "http://10.0.2.2/groupAss1/addStudent.php";
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.INTERNET)
-                != PackageManager.PERMISSION_GRANTED) {
+        if(checkvalidation()==true) {
+            InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            mgr.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            String restUrl = "http://10.0.2.2/groupAss1/addStudent.php";
+            if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.INTERNET)
+                    != PackageManager.PERMISSION_GRANTED) {
 
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.INTERNET},
-                    123);
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.INTERNET},
+                        123);
 
-        } else{
-            SendPostRequest runner = new SendPostRequest();
-            runner.execute(restUrl);
+            } else {
+                SendPostRequest runner = new SendPostRequest();
+                runner.execute(restUrl);
+            }
+        }
+        else {
+            Toast.makeText(MainActivity3.this, "Data Isn't Completed", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -208,8 +219,42 @@ public class MainActivity3 extends AppCompatActivity {
         }
         @Override
         protected void onPostExecute(String result) {
-            Toast.makeText(MainActivity3.this, result, Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity3.this, "Student added successfully", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private boolean checkvalidation(){
+        boolean check =true ;
+        final String id =idTxt.getText().toString();
+        final String Name = nameTxt.getText().toString();
+        final String Email = emailTxt.getText().toString();
+        final String Phone = phoneTxt.getText().toString();
+        if(id.length()==0) {
+            idTxt.requestFocus();
+            idTxt.setError("ID Cannot Be Empty");
+            check=false;
+        } else if(!id.matches("[0-9]+")){
+            idTxt.requestFocus();
+            idTxt.setError("Please Enter Numbers Only");
+            check=false;
+        }  if(Name.length()==0) {
+            nameTxt.requestFocus();
+            nameTxt.setError("Name Field Cannot Be Empty");
+            check=false;
+        } else if(!Name.matches("^[a-zA-Z\\s]+$")){
+            nameTxt.requestFocus();
+            nameTxt.setError("Please Enter Only Characters");
+            check=false;
+        }  if (!Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
+            emailTxt.setError("Enter a valid Email Address");
+            check=false;
+        }  if(!(Phone.length()==10) || !(Phone.matches("[0-9]+"))) {
+            phoneTxt.requestFocus();
+            phoneTxt.setError("The Phone Number Incorrect!");
+            check=false;
+        }
+
+        return check;
     }
 
 

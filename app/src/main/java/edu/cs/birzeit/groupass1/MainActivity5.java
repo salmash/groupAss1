@@ -269,7 +269,7 @@ public class MainActivity5 extends AppCompatActivity {
                         studentsArray);
                 result.setAdapter(itemsAdapter);
             }
-            Toast.makeText(MainActivity5.this, result2, Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity5.this, "Searched Successfully", Toast.LENGTH_LONG).show();
         }
     }
 }
